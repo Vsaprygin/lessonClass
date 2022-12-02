@@ -5,13 +5,27 @@ fun main() {
     val animal3 = Carni("Песец", "2500",35)
     val animal4 = Carni("Норка", "3600", 15)
 
-    animal1.printName()
-    animal1.printHerb()
-    animal2.printName()
-    animal2.printHerb()
-    animal3.printName()
-    animal3.printCarni()
-    animal4.printName()
-    animal4.printCarni()
+    printHerbs(animal1)
+    printHerbs(animal2)
+    printCarnis(animal3)
+    printCarnis(animal4)
+}
+fun printHerbs (animal: Herb){
+    printAnimal("${animal::class.qualifiedName}")
+    animal.printName()
+    animal.printHerb()
 }
 
+fun printCarnis (animal: Carni ){
+    printAnimal("${animal::class.qualifiedName}")
+    animal.printName()
+    animal.printCarni()
+}
+fun printAnimal(className:String){
+    if (className == "Herb"){
+        print("Травоядное ")
+    }
+    if (className == "Carni"){
+        print("Плотоядное  ")
+    }
+}
