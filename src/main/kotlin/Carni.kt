@@ -5,6 +5,7 @@ class Carni(empName: String, val priceFur: String, val wool:Int): Animal(empName
     }
 }
 fun printCarnis (animal: Carni ){
+    print ("Плотоядное ")
     animal.printName()
     animal.printCarni()
 }
