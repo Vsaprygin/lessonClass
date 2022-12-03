@@ -1,22 +1,31 @@
 fun main() {
+
     val animal1 = Herb("Бычок", "500","20%")
     val animal2 = Herb("Баран", "600", "40%")
     val animal3 = Carni("Песец", "2500",35)
     val animal4 = Carni("Норка", "3600", 15)
 
-    val list = mutableListOf(animal1,animal2,animal3,animal4)
-    list.forEach {
-        printAnimalAll(it)
-    }
+    printHerbs(animal1)
+    printHerbs(animal2)
+    printCarnis(animal3)
+    printCarnis(animal4)
 }
-fun printAnimalAll (animal: Any){
-    val className =  animal::class.qualifiedName
+fun printHerbs (animal: Herb){
+    printAnimal("${animal::class.qualifiedName}")
+    animal.printName()
+    animal.printHerb()
+}
+
+fun printCarnis (animal: Carni ){
+    printAnimal("${animal::class.qualifiedName}")
+    animal.printName()
+    animal.printCarni()
+}
+fun printAnimal(className:String){
     if (className == "Herb"){
         print("Травоядное ")
-        printHerbs(animal as Herb)
     }
     if (className == "Carni"){
         print("Плотоядное  ")
-        printCarnis(animal as Carni)
     }
 }
